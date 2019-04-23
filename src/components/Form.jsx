@@ -1,20 +1,23 @@
 import React from 'react';
 import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 
 function Form(props){
   let _title = null;
   let _post = null;
 
-  function makePost(event)  {
-    event.preventDefault()
+  function handleNewPost(event)  {
+    event.preventDefault();
     props.onNewPostCreation({title: _title.value, post: _post.value, id: v4()});
+    _title.value = '';
+    _post.value = '';
   }
 
 
-    return (
-      <div>
-        <style jsx >{`
+  return (
+    <div>
+      <style jsx>{`
           .formStyle {
             display: flex;
             flex-flow: column nowrap;
@@ -35,15 +38,21 @@ function Form(props){
           }
 
         `}
-        </style>
-        <form onSubmit={makePost} className='formStyle'>
-          <input type='text' placeholder='Title' ref={(input) => {_title = input;}} />
-          <textarea ref={(textarea) => {_post = textarea;}}></textarea>
-          <button type='submit'>Submit Post</button>
-        </form>
-      </div>
-    );
+      </style>
+      <h1>Tell it like it is</h1>
+      <form onSubmit={handleNewPost} className='formStyle'>
+        <input type='text' placeholder='Title' ref={(input) => {_title = input;}} />
+        <textarea ref={(textarea) => {_post = textarea;}}></textarea>
+        <button type='submit'>Submit Post</button>
+      </form>
+    </div>
+  );
 }
+
+
+Form.propTypes = {
+  onNewPostCreation: PropTypes.func
+};
 
 export default Form;
 

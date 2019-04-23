@@ -18,6 +18,6 @@ function Post(props){
 Post.propTypes = {
   header: PropTypes.string,
   content: PropTypes.string,
-}
+};
 
 export default Post;

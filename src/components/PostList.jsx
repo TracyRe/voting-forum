@@ -28,10 +28,10 @@ function PostList(props){
   return (
     <div>
       <h1>Vote on these posts</h1>
-        {props.posts.map((post, index) =>
-        <Post header={post.header}
-              content={post.content}
-              key={index}/>)}
+      {props.postList.map((post, index) =>
+        <Post header={post.title}
+          content={post.post}
+          key={post.id}/>)}
     </div>
   );
 }
