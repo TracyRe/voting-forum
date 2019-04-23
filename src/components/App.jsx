@@ -17,7 +17,7 @@ class App extends React.Component {
 
   handleAddingNewPost(newPost) {
     const newMasterPostList = this.state.masterPostList.slice();
-    newMasterPostList.push(newPost);
+    newMasterPostList.unshift(newPost);
     this.setState({masterPostList: newMasterPostList});
   }
 

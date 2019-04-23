@@ -31,6 +31,9 @@ function PostList(props){
       {props.postList.map((post, index) =>
         <Post header={post.title}
           content={post.post}
+          upVotes={post.upVotes}
+          downVotes={post.downVotes}
+          totalVotes={post.totalVotes}
           key={post.id}/>)}
     </div>
   );

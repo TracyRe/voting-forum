@@ -4,13 +4,18 @@ import Votes from './Votes';
 
 
 function Post(props){
+  console.log(props.upVotes);
+
+
+
   return (
     <div style={{border: '1px solid #ccc'}}>
 
       <h1>{props.header}</h1>
       <p>{props.content}</p>
-
-      <Votes/>
+      <Votes upVotes={props.upVotes}
+      downVotes={props.downVotes}
+      totalVotes={props.totalVotes}/>
     </div>
   );
 }
@@ -18,6 +23,11 @@ function Post(props){
 Post.propTypes = {
   header: PropTypes.string,
   content: PropTypes.string,
+  upVotes: PropTypes.number,
+  downVotes: PropTypes.number,
+  totalVotes: PropTypes.number,
 };
+
+
 
 export default Post;
