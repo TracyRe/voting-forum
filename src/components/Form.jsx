@@ -10,7 +10,7 @@ function Form(props){
 
   function handleNewPost(event)  {
     event.preventDefault();
-    props.onNewPostCreation({title: _title.value, post: _post.value, upVotes: 0, downVotes: 0, totalVotes: 0, id: v4()});
+    props.onNewPostCreation({title: _title.value, post: _post.value, id: v4()});
     _title.value = '';
     _post.value = '';
   }
