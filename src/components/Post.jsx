@@ -4,7 +4,6 @@ import Votes from './Votes';
 
 
 function Post(props){
-  console.log(props.upVotes);
 
 
 
